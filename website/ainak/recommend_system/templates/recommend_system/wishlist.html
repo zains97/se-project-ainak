@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ 	<title>Ainak | Wish List</title>
+	{% load static %}
+    <!--meta tags -->
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="" />
+	<!--meta tags -->
+
+	<!-- Links -->
+		<link href="{% static 'css/bootstrap.min1.css' %}" rel="stylesheet">
+		<link href="{% static 'css/wishlist9.css' %}" rel="stylesheet">
+	<!-- Links -->
+	
+	<!-- Header section links -->
+		<link href="{% static 'css/icofont/icofont.min.css' %}" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrapheader.min.css' %}">
+	<!-- Header section links -->
+	
+	<!--stylesheets-->
+		<link href="{% static 'css/headerfooterstyle.css' %}" rel='stylesheet' type='text/css' media="all">
+		<link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" type="text/css" media="all" />
+		<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" media="all" />
+		
+	<!-- Search Panel Responsive-->
+		<link rel="stylesheet" type="text/css" href="{% static 'css/wishlistresponsive.css' %}">
+	<!-- Search Panel Responsive-->
+	
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'css/ionicons.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/icomoon.css' %}">
+
+	<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrapheader.min.css' %}">
+	
+</head>
+
+<body>
+
+
+	<!-- Header -->
+		{% include 'recommend_system/header.html' %}
+     <!-- Header -->
+
+	<!-- banner -->
+		<div class="inner_page-banner">
+			 
+			<!-- Home Search -->
+				<section id="search">
+					<div class="search-panel">	
+						<div class="home_search">
+							<div class="container">
+								<div class="row">
+									<div class="col">
+										<div class="home_search_container">
+											<div class="home_search_content">
+												<div class="search_form_content d-flex flex-row align-items-start justfy-content-start flex-wrap">
+													<div>
+														<a href="{% url 'account' request.session.user_id %}"><button id="search_form_button_left" class="search_form_button1 ml-auto"><i class="fa fa-user"></i> Account </button></a>
+													</div>
+													<div>
+														<a href="{% url 'wishlist' request.session.user_id %}"><button  class="search_form_button1 ml-auto"><i class="fa fa-heart"></i> Wish List <span class="badge badge-pill badge-success">{{ wishcount }}</span></button></a>
+													</div>
+													<div>
+														<a href="{% url 'viewglasses' request.session.user_id %}"><button class="search_form_button1 ml-auto"><i class="fa fa-eye"></i> View Glasses <span class="badge badge-pill badge-success">{{ clickcount }}</span></button></a>
+													</div>
+													<div>
+														<a href="{% url 'buy' request.session.user_id %}"><button id="search_form_button_right" class="search_form_button1 ml-auto"><i class="fa fa-shopping-cart"></i> Order List <span class="badge badge-pill badge-success">{{ buy }}</span></button></a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			<!-- Home Search -->
+			
+		</div>
+    <!--//banner -->
+
+	<section class="ftco-section">
+		<div class="container">
+			<div class="col-12">
+                <div class="section-heading text-center ftco-animate">
+				{% if data %}
+                    <h2>Your <span>WishList </span></h2>
+                    <p>Your Wish is Our Priority We Will Help you Make it Comes True.</p>
+                </div>
+            </div>
+			<div class="row justify-content-center">
+				<!-- end -->
+
+				<!-- Property Area -->
+				<div class="col-lg-9">
+					<div class="row">
+						{% for data in data %}
+						<div class="col-md-6 col-lg-4 ftco-animate">
+							<div class="project">
+								<div class="img">
+									<img src="/media/{{data.post_id.landscape1}}" class="img-fluid box_img" alt="">
+
+									<div class="text">
+										<form action="{% url 'wishlist' request.session.user_id %}" method="post">{% csrf_token %}
+											<input type="hidden" name="id" value="{{ data.id }}"/>
+											<button class="btn" type="submit" style="margin-top:-73px; float:right;">
+												<i class="fa fa-trash" aria-hidden="true" style="color:red; font-size:20pt;"></i>
+											</button>
+										</form>
+									</div>
+
+									<div class="text">
+										<h3><a href="{% url 'glassesdetail' data.post_id.id %}" style="background: none; font-weight: 500;  font-size: 100%; color:#fff;">{{data.post_id.glassesname}} &rarr; </a></h3>
+									</div>
+								</div>
+								<div class="desc pt-3">
+									<h4 class="price">PKR: {{data.post_id.price}}</h4>
+								</div>
+							</div>
+						</div>
+						{% endfor %}
+					</div>
+
+					<!-- Pagination -->
+					<div class="pagination">
+						<ul class="pagination">
+							{% if data.has_previous %}
+								<li class="page-item"><a class="page-link" href="?page={{ data.previous_page_number }}" style="color:#ff9900;">Previous</a></li>
+							{% endif %}
+							{% for num in data.paginator.page_range %}
+							{% if data.number == num %}
+								<li class="page-item active"><a class="page-link" href="?page={{ num }}" style="border-color:#ff9900; background:#ff9900; color:#fff;">{{ num }}</a></li>
+							{% elif num > data.number|add:'-5' and num < data.number|add:'5' %}
+								<li class="page-item"><a class="page-link" href="?page={{ num }}" style="color:#ff9900;">{{ num }}</a></li>
+							{% endif %}
+							{% endfor %}
+							{% if data.has_next %}
+								<li class="page-item"><a class="page-link" href="?page={{ data.next_page_number }}" style="color:#ff9900;">Next</a></li>
+							{% endif %}
+						</ul>
+					</div>
+					<!-- Pagination End -->
+		    	</div>
+				<!-- Property Area -->
+	    	</div>
+			{% else %}
+				<div class="col-12">
+					<div class="section-heading text-center ftco-animate">
+						 <h2>Your <span>WishList</span></h2>
+						<p>Add Some Glasses</p>
+					</div>
+				</div>
+			{% endif %}
+		</div>
+	</section>
+
+	<script src="{% static 'js/jquery.min.js' %}"></script>
+	<script src="{% static 'js/jquery-migrate-3.0.1.min.js' %}"></script>
+	<script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+	<script src="{% static 'js/jquery.stellar.min.js' %}"></script>
+	<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+	<script src="{% static 'js/aos.js' %}"></script>
+	<script src="{% static 'js/scrollax.min.js' %}"></script>
+	<script src="{% static 'js/main.js' %}"></script>
+
+	 
+    
+	<!-- footer section -->
+		<section class="footer" id="contact">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-4 col-md-4 footer-agile">
+						<h3>About Us</h3>
+						<p class="footer-p1">Ainak.com is the first innovative Glasses web portal with new dimensions in the sector, aiming to provide easy access to buy for any kind of glasses and also  provide innovative solutions, to ensure the best possible outcome is achieved.</p>
+						<ul class="social-icons3">
+							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+							<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+						</ul>
+					</div>
+					<div class="col-lg-4 col-md-4 footer-agile">
+						<h3>Ainak.com</h3>
+						<p class="footer-p2">In Association and support of Etc University.</p>
+						<p class="footer-p3"><a href="#">#Opened</a>, <span>24/7</span></p>
+					</div>
+					<div class="col-lg-4 col-md-4 footer-agile">
+						<h3>GET IN TOUCH</h3>
+						<div class="contact-w3ls">
+							<div class="row">
+								<div class="col-xs-4 contact-agile1">
+									<i class="fa fa-map-marker" aria-hidden="true"></i>
+								</div>
+								<div class="col-xs-8 contact-agile2">
+									<div class="address">
+										<h4>Visit Us</h4>
+										<p>Karachi, Sindh, Pakistan</p>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-4 contact-agile1">
+									<i class="fa fa-envelope-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-xs-8 contact-agile2">
+									<div class="address">
+										<h4>Mail Us</h4>
+										<p><a href="mailto:email@example.com">email@example.com</a></p>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-4 contact-agile1">
+									<i class="fa fa-mobile" aria-hidden="true"></i>
+								</div>
+								<div class="col-xs-8 contact-agile2">
+									<div class="address">
+										<h4>Call Us</h4>
+										<p>+92 300 2312341</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<hr style="background:#fff;">
+				<p class="copyright">&copy; 2020. All rights reserved | Design by Syed Osama Hussain</p>
+			</div>
+		</section>
+	<!-- /footer section -->
+	<!-- back to top -->
+		<a href="#0" class="cd-top">Top</a>
+		<script src="js/top.js"></script> 
+	<!-- back to top -->
+
+  </body>
+</html>

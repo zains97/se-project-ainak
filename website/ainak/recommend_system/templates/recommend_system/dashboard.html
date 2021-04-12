@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+{% load static %}
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Ainak || Admin Panel</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="{% static 'dashboard/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  
+  <script type="text/javascript" src="{% static 'dashboard/Lib/jquery-3.3.1.min-Production.js' %}"></script>
+  
+   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	  
+	  <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+
+  <!-- Custom styles for this template-->
+  <link href="{% static 'dashboard/css/sb-admin-2.min.css' %}" rel="stylesheet">
+
+	<script>
+		window.setTimeout(function() {
+			$("#alert").fadeTo(1500, 0).slideUp(900, function(){
+				$(this).remove();
+			});
+		}, 1500);
+	</script>
+<!-- <script type="text/javascript"> -->
+    <!-- $(document).ready(function(){ -->
+		
+		 <!-- $('.icheck').on('change', function() { -->
+			  <!-- if ($(this).is(':checked')) { -->
+				<!-- $("#myModal").modal({ -->
+				  <!-- backdrop: 'static', -->
+				  <!-- eyboard: false -->
+				<!-- }); -->
+			  <!-- } -->
+		<!-- }); -->
+
+		<!-- $('#btnModalCancel').click(function() { -->
+		  <!-- $('.icheck').prop('checked', false); -->
+		<!-- }); -->
+		
+		
+		<!-- $("#myInput").on("keyup", function(){ -->
+			<!-- $("#table").fadeIn(600); -->
+		<!-- }); -->
+		
+		<!-- $("#myInput").on("keyup", function() { -->
+			<!-- var value = $(this).val().toLowerCase(); -->
+		
+			<!-- $("#tablebody tr").filter(function() { -->
+				<!-- $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1) -->
+			<!-- }); -->
+
+		<!-- }); -->
+
+    <!-- }); -->
+	
+	<!-- function setup(){ -->
+		<!-- var text; -->
+		<!-- text = document.getElementById('myInput'); -->
+		<!-- text.focus(); -->
+	<!-- } -->
+	<!-- window.addEventListener('load', setup, false); -->
+<!-- </script> -->
+
+</head>
+
+<body id="page-top">
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+      <!-- Sidebar - Brand -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <div class="sidebar-brand-icon">
+          <i class="fas fa-glasses"></i>
+        </div>
+        <div class="sidebar-brand-text mx-3">Ainak </div>
+      </a>
+<br><br>
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0">
+
+      <!-- Nav Item - Dashboard -->
+      <li class="nav-item active">
+        <a class="nav-link" href="../dashboard/">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span class="">Dashboard</span></a>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        Actions
+      </div>
+
+      <!-- Nav Item - Pages Collapse Menu -->
+      <!-- <li class="nav-item"> -->
+        <!-- <a class="nav-link" href="Order.html"> -->
+		<!-- <i class="fa fa-shopping-cart"></i> -->
+          <!-- <span>Get Order</span> -->
+        <!-- </a> -->
+      <!-- </li> -->
+	  
+	  <li class="nav-item">
+        <a class="nav-link" href="../allusers/">
+		<i class="fa fa-user"></i>
+          <span>Users</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="../delivery/">
+		<i class="fa fa-truck"></i>
+          <span>Delivery</span>
+        </a>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+	  
+	  <li class="nav-item">
+        <a class="nav-link" href="{% url 'logout' %}">
+		<i class="fas fa-sign-out-alt"></i>
+          <span>Logout</span>
+        </a>
+      </li>
+	  
+	  <hr class="sidebar-divider">
+
+      <!-- Sidebar Toggler (Sidebar) -->
+      <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+      </div>
+
+    </ul>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <!-- Topbar -->
+        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+            <h1 class="h3 mb-0 mx-auto  font-weight-bold" Style="font-family:French Script MT; font-size:34pt;">Admin <span style="color:#ff9100;" >Panel</span></h1>
+          <!-- Sidebar Toggle (Topbar) -->
+          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+          </button>
+
+        </nav>
+        <!-- End of Topbar -->
+
+<!--		  <div class="container-fluid" style="margin-bottom:-0px;">-->
+<!--			{% for message in messages %}-->
+<!--			<div id="alert" class="alert alert-{{ message.tags }} alert-dismissible fade in" role="alert">-->
+<!--				  <strong>Message: </strong> {{ message}}-->
+<!--				  <button type="button" class="close" data-dismiss="alert" aria-label="Close">-->
+<!--					<span aria-hidden="true">&times;</span>-->
+<!--				  </button>-->
+<!--			</div>-->
+<!--			{% endfor %}-->
+<!--		  </div>-->
+
+<!--		  <div class="container-fluid" style="margin-bottom:-0px;">-->
+<!--			  {% for message in messages %}-->
+<!--			  <div id="alert" class="alert alert-{{ message.tags }} alert-dismissible fade in" role="alert">-->
+<!--				  <strong>Message: </strong> {{ message}}-->
+<!--			  </div>-->
+<!--			  {% endfor %}-->
+<!--		  </div>-->
+
+     <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+			{% for message in messages %}
+				<div id="alert" class="alert alert-{{ message.tags }} alert-dismissible">
+					<button type="button" class="close" data-dismiss="alert">&times;</button>
+				  <strong>Message: </strong> {{ message}}
+				</div>
+			{% endfor %}
+
+          <!-- Page Heading -->
+          <div class="row">
+
+            <!-- Area Chart -->
+            <div class="col-xl-12 col-lg-10 mx-auto mt-5">
+              <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h6 class="m-0 font-weight-bold text-primary"><i class="fa fa-cog"></i> Account</h6>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body"><br>
+					<div class="col-md-12 mb-4">
+						<form id="form" action="{% url 'dashboard' %}" method="post">
+							{% csrf_token %}
+							<div class="form-row">
+								<div class="col-md-6 mb-3">
+									<label>Username</label>
+									<input type="text" class="form-control" name="username" value="{{ data.username }}" required>
+								</div>
+								<div class="col-md-6 mb-3">
+									<label>Email</label>
+									<input type="email" class="form-control" name="email" value="{{ data.email }}" required>
+								</div>
+							</div>
+							<div class="form-row">
+								<div class="col-md-12 mb-3">
+									<label>Password</label>
+									<input type="text" class="form-control" name="pass1" value="{{ data.pass1 }}" required>
+								</div>
+							</div>
+							
+							<div class="form-row float-right">
+								<div class="col-md-1 mb-3">
+									<input type="submit" class="btn btn-success" name="update" value="Update">
+								</div>
+							</div>
+						</form>
+					</div>
+                </div>
+              </div>
+            </div>
+
+       
+		</div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+		
+
+
+				        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+          <!-- Page Heading -->
+          <div class="row">
+
+            <!-- Area Chart -->
+            <div class="col-xl-12 col-lg-10 mx-auto mt-5">
+              <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h6 class="m-0 font-weight-bold text-primary"><i class="fa fa-user-plus"></i> Add Employee</h6>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body"><br>
+					<div class="col-md-12 mb-4">
+						<form id="form" action="{% url 'dashboard' %}" method="post">
+							{% csrf_token %}
+							<div class="form-row">
+								<div class="col-md-6 mb-3">
+									<label>Username</label>
+									<input type="text" class="form-control" name="username" required>
+								</div>
+								<div class="col-md-6 mb-3">
+									<label>Email</label>
+									<input type="email" class="form-control" name="email" required>
+								</div>
+							</div>
+							<div class="form-row">
+								<div class="col-md-12 mb-3">
+									<label>Password</label>
+									<input type="password" class="form-control" name="pass1" required>
+								</div>
+							</div>
+							
+							<div class="form-row float-right">
+								<div class="col-md-1 mb-3">
+									<input type="submit" class="btn btn-success" name="addemployee" value="Add">
+								</div>
+							</div>
+						</form>
+					</div>
+                </div>
+              </div>
+            </div>
+
+       
+		</div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+
+
+		        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+          <!-- Page Heading -->
+          <div class="row">
+
+            <!-- Area Chart -->
+            <div class="col-xl-12 col-lg-10 mx-auto mt-5">
+              <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h6 class="m-0 font-weight-bold text-primary"><i class="fa fa-user-plus"></i> Add User</h6>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body"><br>
+					<div class="col-md-12 mb-4">
+						<form id="form"  action="{% url 'dashboard' %}" method="post">
+							{% csrf_token %}
+						  	<div class="form-row">
+								<div class="col-md-6 mb-3">
+									<label>First Name</label>
+									<input type="text" class="form-control" name="fname" required>
+								</div>
+								<div class="col-md-6 mb-3">
+									<label>Last Name</label>
+									<input type="text" class="form-control" name="lname" required>
+								</div>
+							</div>
+							<div class="form-row">
+								<div class="col-md-12 mb-3">
+									<label>Email</label>
+									<input type="email" class="form-control" name="email" required>
+								</div>
+							</div>
+							<div class="form-row">
+								<div class="col-md-6 mb-3">
+									<label>Username</label>
+									<input type="text" class="form-control" name="username" required>
+								</div>
+								<div class="col-md-6 mb-3">
+									<label>City</label>
+									<select name="city" class="custom-select browser-default" required>
+											<option value="" hidden>Select City</option>
+											<option value="Karachi">Karachi</option>
+											<option value="Hydrabad">Hydrabad</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-row">
+								<div class="col-md-6 mb-3">
+									<label>Password</label>
+									<input type="password" class="form-control" name="pass1" required>
+								</div>
+								<div class="col-md-6 mb-3">
+									<label>Re-Password</label>
+									<input type="password" class="form-control" name="pass2" required>
+								</div>
+							</div>
+							<div class="form-row float-right">
+								<div class="col-md-1 mb-3">
+									<input type="submit" class="btn btn-success" name="adduser" value="Add">
+								</div>
+							</div>
+						</form>
+					</div>
+                </div>
+              </div>
+            </div>
+
+       
+		</div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="{% static 'dashboard/vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'dashboard/vendor/jquery/jquery.min.js' %}vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="{% static 'dashboard/vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="{% static 'dashboard/js/sb-admin-2.min.js' %}"></script>
+
+<!--  &lt;!&ndash; Page level plugins &ndash;&gt;-->
+<!--  <script src="vendor/chart.js/Chart.min.js"></script>-->
+
+<!--  &lt;!&ndash; Page level custom scripts &ndash;&gt;-->
+<!--  <script src="js/demo/chart-area-demo.js"></script>-->
+<!--  <script src="js/demo/chart-pie-demo.js"></script>-->
+
+</body>
+
+</html>

@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{% load static %}
+ 	<title>Glasses Detail</title>
+    <!--meta tags -->
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="" />
+	<!--meta tags -->
+
+	<!-- Links -->
+		<link href="{% static 'css/glassespage1.css' %}" rel="stylesheet">
+	<!-- Links -->
+
+	<!-- Header section links -->
+		<link href="{% static 'css/icofont/icofont.min.css' %}" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrapheader.min.css' %}">
+	<!-- Header section links -->
+
+	<!--stylesheets-->
+		<link href="{% static 'css/headerfooterstyle.css' %}" rel='stylesheet' type='text/css' media="all">
+		<link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" type="text/css" media="all" />
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+		<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" media="all" />
+		
+	<!-- Search Panel Responsive-->
+		<link rel="stylesheet" type="text/css" href="{% static 'css/searchresponsive.css' %}">
+	<!-- Search Panel Responsive-->
+
+
+		<!-- Stylesheets -->
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/font-awesome.min1.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/owl.carousel3.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/glassesdetail.css' %}"/>
+	
+</head>
+
+<body>
+{% include 'recommend_system/header.html' %}
+
+	<!-- banner -->
+		<div class="inner_page-banner">
+	<!-- Home Search -->
+<!--			<section id="search">-->
+<!--				<div class="search-panel">-->
+<!--					<div class="home_search">-->
+<!--						<div class="container">-->
+<!--							<div class="row">-->
+<!--								<div class="col">-->
+<!--									<div class="home_search_container">-->
+<!--										<div class="home_search_content">-->
+<!--											<form action="{% url 'search' %}" method="post" class="search_form d-flex flex-row align-items-start justfy-content-start"> {% csrf_token %}-->
+
+<!--												<input type="hidden" name="user_id" value="{{ request.session.user_id }}"/>-->
+<!--												<input type="hidden" name="user_name" value="{{ request.session.user_email }}"/>-->
+
+<!--												<div class="search_form_content d-flex flex-row align-items-start justfy-content-start flex-wrap">-->
+<!--													<div>-->
+<!--														 <input class="search_form_select" type="text" name="search_text" placeholder="Search Anything Like:   City, Location, Price, Sft, Category . . . . "/>-->
+<!--													</div>-->
+<!--												</div>-->
+<!--												<button type="submit" class="search_form_button ml-auto"><i class="fa fa-search"></i> search</button>-->
+<!--											</form>-->
+<!--										</div>-->
+<!--									</div>-->
+<!--								</div>-->
+<!--							</div>-->
+<!--						</div>-->
+<!--					</div>-->
+<!--				</div>-->
+<!--			</section>-->
+		<!-- Home Search -->
+		</div>
+    <!--//banner -->
+
+
+	<!-- Button trigger modal -->
+		<!-- Modal -->
+		<div class="modal fade" id="buy" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="padding-top: 150px;">
+		  <div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<h5 class="modal-title" id="exampleModalCenterTitle">Delivery Details <i class="fa fa-shopping-cart"></i></h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				  <span aria-hidden="true">&times;</span>
+				</button>
+			  </div>
+			  <div class="modal-body">
+				<form action="{% url 'glassesdetail' home.id %}" method="post"  onsubmit="openModal()" id="myForm">{% csrf_token %}
+					<div class="form-group">
+						<input type="hidden" name="user_id" value="{{ request.session.user_id }}"/>
+						<label for="address">Address</label>
+						<input type="text" class="form-control" id="address" name="address" placeholder="Enter your Address" required/>
+					</div>
+					{% if home.category == "eyeglasses" %}
+					<div class="form-group">
+						<label for="address">Right Eye</label>
+						<input type="number" class="form-control"  name="righteye" step="any" placeholder="Enter your Right Eye No" required/>
+					</div>
+					<div class="form-group">
+						<label for="address">Left Eye</label>
+						<input type="number" class="form-control"  name="lefteye" step="any" placeholder="Enter your Left Eye No" required/>
+					</div>
+					{% endif%}
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				  <button type="submit" id="formbutton1" name="buy" class="btn btn-primary">Submit</button>
+				  </form>
+			  </div>
+			</div>
+		  </div>
+		</div>
+
+
+
+	<!-- Page -->
+	<section class="page-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-10 single-list-page">
+					<div class="single-list-slider owl-carousel" id="sl-slider">
+						<div class="sl-item set-bg" data-setbg="/media/{{home.landscape1}}">
+						</div>
+						<div class="sl-item set-bg" data-setbg="/media/{{home.landscape2}}">
+						</div>
+						<div class="sl-item set-bg" data-setbg="/media/{{home.landscape3}}">
+						</div>
+<!--						<div class="sl-item set-bg" data-setbg="/media/{{home.landscape4}}">-->
+<!--							<div class="sale-notic">{{home.status}}</div>-->
+<!--						</div>-->
+<!--						<div class="sl-item set-bg" data-setbg="/media/{{home.landscape5}}">-->
+<!--							<div class="sale-notic">{{home.status}}</div>-->
+<!--						</div>-->
+					</div>
+					<div class="owl-carousel sl-thumb-slider" id="sl-slider-thumb">
+						<div class="sl-thumb set-bg" data-setbg="/media/{{home.landscape1}}"></div>
+						<div class="sl-thumb set-bg" data-setbg="/media/{{home.landscape2}}"></div>
+						<div class="sl-thumb set-bg" data-setbg="/media/{{home.landscape3}}"></div>
+<!--						<div class="sl-thumb set-bg" data-setbg="/media/{{home.landscape4}}"></div>-->
+<!--						<div class="sl-thumb set-bg" data-setbg="/media/{{home.landscape5}}"></div>-->
+					</div>
+
+
+					<div class="single-list-content">
+						<div class="row" ftco-animate>
+							<div class="col-xl-8 sl-title">
+								<h2>{{home.glassesname}}</h2>
+<!--								<p><i class="fa fa-map-marker"></i>{{home.city}}</p>-->
+
+								{% if request.session.is_logged %}
+									{% if rating_check %}
+										{% for com in rating_check %}
+										<div class="form-group required">
+											<div class="star-rating">
+												<label for="star-5" title="5 stars" style="color: #f2b600;">★ {{ com.rating }}</label>
+											</div>
+										</div>
+										{% endfor %}
+									{% else %}
+										<form method="post" action="{% url 'glassesdetail' home.id %}"> {% csrf_token %}
+											<div class="form-group required">
+												<div class="star-rating">
+													<input id="star-5" type="radio" name="rating" value="0.5" onclick="this.form.submit()"/>
+													<label for="star-5" title="5 stars">★</label>
+													<input id="star-4" type="radio" name="rating" value="0.4" onclick="this.form.submit()"/>
+													<label for="star-4" title="4 stars">★</label>
+													<input id="star-3" type="radio" name="rating" value="0.3" onclick="this.form.submit()"/>
+													<label for="star-3" title="3 stars">★</label>
+													<input id="star-2" type="radio" name="rating" value="0.2" onclick="this.form.submit()"/>
+													<label for="star-2" title="2 stars">★</label>
+													<input id="star-1" type="radio" name="rating" value="0.1" onclick="this.form.submit()"/>
+													<label for="star-1" title="1 star">★</label>
+												</div>
+											</div>
+										</form>
+									{% endif %}
+								{% else %}
+								{% endif %}
+							</div>
+						</div>
+						<br>
+
+						<div class="row ftco-animate">
+							<div class="col-xl-8 sl-title">
+								{% if request.session.is_logged %}
+								<form action="{% url 'glassesdetail' home.id %}" method="post">
+            						{% csrf_token %}
+									<input type="hidden" name="user_id" value="{{ request.session.user_id }}"/>
+									<input type="hidden" name="email" value="{{ request.session.is_logged }}"/>
+									{% if check_buy %}
+										<form action="{% url 'glassesdetail' home.id %}" method="post">
+            							{% csrf_token %}
+											<button type="submit" name="cancel" class="btn price-btn"><i class="fa fa-trash" aria-hidden="true" style="color:red; font-size:20pt;"></i> Cancel</button>
+										</form>
+									{% else %}
+										<button data-toggle="modal" data-target="#buy" type="button" class="btn price-btn"><i class="fa fa-shopping-cart"></i> Buy </button>
+									{% endif %}
+								</form>
+								{% endif %}
+							</div>
+							<div class="col-xl-3">
+								<form action="{% url 'glassesdetail' home.id %}" method="post">
+									 {% csrf_token %}
+								<button type="submit" name="virtual" class="btn price-btn"><i class="fas fa-glasses"></i> Virtual Try On </button>
+								</form>
+							</div>
+						</div>
+
+						<div class="row ftco-animate">
+							<div class="col-xl-8 sl-title">
+								{% if request.session.is_logged %}
+								<form action="{% url 'glassesdetail' home.id %}" method="post">
+            						{% csrf_token %}
+									<input type="hidden" name="user_id" value="{{ request.session.user_id }}"/>
+									<input type="hidden" name="email" value="{{ request.session.is_logged }}"/>
+									{% if check %}
+										<form action="{% url 'glassesdetail' home.id %}" method="post">
+            							{% csrf_token %}
+											<button type="submit" name="remove" class="btn price-btn"><i class="fa fa-trash" aria-hidden="true" style="color:red; font-size:20pt;"></i> Remove</button>
+										</form>
+									{% else %}
+										<button type="submit" name="wishlist" class="btn price-btn"><i class="fa fa-heart"></i> Add to Wishlist </button>
+									{% endif %}
+								</form>
+								{% endif %}
+							</div>
+							<div class="col-xl-3">
+								<a href="#" class="price-btn">PKR: {{home.price}}</a>
+							</div>
+						</div>
+
+						<h3 class="sl-sp-title ftco-animate">Description</h3>
+						<div class="description ftco-animate">
+							<p>{{home.description}}</p>
+						</div>
+
+						<div class="row bootstrap snippets">
+							<div class="col-md-12 col-md col-sm-12 mt-5">
+								<div class="comment-wrapper">
+									<div class="panel panel-info">
+										<div class="panel-heading ">
+											<strong>Leave a Review</strong>
+										</div>
+										<div class="panel-body">
+											{% if request.session.is_logged %}
+												<form method="post" action="{% url 'glassesdetail' home.id %}"> {% csrf_token %}
+													<input type="hidden" name="user_id" value="{{ request.session.user_id }}">
+													<textarea class="form-control" name="message" placeholder="..." rows="3"></textarea>
+													<br>
+													<button type="submit" name="commment" class="btn btn-info pull-right">Post</button>
+												</form>
+											{% else %}
+												<div class="alert alert-danger" role="alert">
+												  You have to login for comments!
+												</div>
+											{% endif %}
+
+											<div class="clearfix"></div>
+											<hr>
+											<ul class="media-list">
+											{% for com in comments %}
+												<li class="media">
+													<a href="#" class="pull-left">
+														<img src="https://bootdey.com/img/Content/user_1.jpg" alt="" class="img-circle">
+													</a>
+													<div class="media-body">
+														<span class="text-muted pull-right">
+															<small class="text-muted">{{ com.time_comment }} ago</small>
+														</span>
+														<strong class="text-success">@{{ com.user_id.username }}</strong>
+														<p>{{ com.message }}</p>
+
+													</div>
+												</li>
+											{% endfor %}
+
+											</ul>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+
+				<!-- sidebar -->
+<!--				<div class="col-lg-4 col-md-7 sidebar">-->
+
+<!--					<div class="author-card">-->
+<!--&lt;!&ndash;						<div class="author-img set-bg" data-setbg="{% static 'img/author.png' %}"></div>&ndash;&gt;-->
+<!--&lt;!&ndash;						<div class="author-info">&ndash;&gt;-->
+<!--&lt;!&ndash;							<h4><b>{{home.name}}</b></h4>&ndash;&gt;-->
+<!--&lt;!&ndash;							<p>Real Estate Agent</p>&ndash;&gt;-->
+<!--&lt;!&ndash;						</div>&ndash;&gt;-->
+<!--						<div class="author-contact">-->
+<!--							{% if request.session.is_logged %}-->
+<!--									<form action="{% url 'glassesdetail' home.id %}" method="post">-->
+<!--									 {% csrf_token %}-->
+<!--										<input type="hidden" name="user_id" value="{{ request.session.user_id }}"/>-->
+<!--										<input type="hidden" name="email" value="{{ request.session.is_logged }}"/>-->
+<!--										<button type="submit" name="broker" class="btn btn-primary btn-lg text-center"><i class="fas fa-glasses"></i> Virtual Try On!</button>-->
+<!--									</form>-->
+<!--							{% endif %}-->
+<!--							<br>-->
+<!--							<br>-->
+<!--						</div>-->
+<!--					</div>-->
+
+<!--					<div class="related-properties">-->
+<!--						<h2>Related <span>Glasses</span></h2>-->
+<!--						{% for data in arrName %}-->
+<!--							<div class="rp-item ftco-animate">-->
+<!--								<div class="rp-pic set-bg" data-setbg="/media/{{ data.0.landscape1 }}">-->
+<!--								</div>-->
+<!--								<div class="rp-info">-->
+<!--									<h5>{{ data.0.glassesname }}</h5>-->
+<!--								</div>-->
+<!--								<form method="POST" action="{% url 'glassesdetail' data.0.id %}">-->
+<!--									{% csrf_token %}-->
+<!--									<input type="hidden" name="user_id" value="{{ request.session.user_id }}"/>-->
+<!--									<input type="hidden" name="email" value="{{ request.session.is_logged }}"/>-->
+<!--									<button type="submit" name="click_item" class="rp-price" style="width: 100%; border: none;">Rs: {{ data.0.price }} &rarr; </button>-->
+<!--								</form>-->
+<!--							</div>-->
+<!--						{% endfor %}-->
+<!--					</div>-->
+<!--					{% if request.session.is_logged %}-->
+<!--					<hrs>-->
+<!--					<div class="related-properties pt-5">-->
+<!--						<h2>Glasses You <span> May Like</span></h2>-->
+<!--						{% for data in arrName2 %}-->
+<!--							<div class="rp-item ftco-animate">-->
+<!--								<div class="rp-pic set-bg" data-setbg="/media/{{ data.0.landscape1 }}">-->
+<!--								</div>-->
+<!--								<div class="rp-info">-->
+<!--									<h5>{{ data.0.glassesname }}</h5>-->
+<!--								</div>-->
+<!--								<form method="POST" action="{% url 'glassesdetail' data.0.id %}">-->
+<!--									{% csrf_token %}-->
+<!--									<input type="hidden" name="user_id" value="{{ request.session.user_id }}"/>-->
+<!--									<input type="hidden" name="email" value="{{ request.session.is_logged }}"/>-->
+<!--									<button type="submit" name="click_item" class="rp-price" style="width: 100%; border: none;">Rs: {{ data.0.price }} &rarr; </button>-->
+<!--								</form>-->
+<!--							</div>-->
+<!--						{% endfor %}-->
+<!--						{% endif %}-->
+<!--					</div>-->
+<!--				</div>-->
+			</div>
+		</div>
+	</section>
+	<!-- Page end -->
+	<!--====== Javascripts & Jquery ======-->
+	<script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+	<script src="{% static 'js/owl.carousel.min3.js' %}"></script>
+	<script src="{% static 'js/masonry.pkgd.min.js' %}"></script>
+	<script src="{% static 'js/main3.js' %}"></script>
+	
+	
+	<!-- footer section -->
+		<section class="footer" id="contact">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-4 col-md-4 footer-agile">
+						<h3>About Us</h3>
+						<p class="footer-p1">Ainak.com is the first innovative Glasses web portal with new dimensions in the sector, aiming to provide easy access to buy for any kind of glasses and also  provide innovative solutions, to ensure the best possible outcome is achieved.</p>
+						<ul class="social-icons3">
+							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+							<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+						</ul>
+					</div>
+					<div class="col-lg-4 col-md-4 footer-agile">
+						<h3>Ainak.com</h3>
+						<p class="footer-p2">In Association and support of Etc University.</p>
+						<p class="footer-p3"><a href="#">#Opened</a>, <span>24/7</span></p>
+					</div>
+					<div class="col-lg-4 col-md-4 footer-agile">
+						<h3>GET IN TOUCH</h3>
+						<div class="contact-w3ls">
+							<div class="row">
+								<div class="col-xs-4 contact-agile1">
+									<i class="fa fa-map-marker" aria-hidden="true"></i>
+								</div>
+								<div class="col-xs-8 contact-agile2">
+									<div class="address">
+										<h4>Visit Us</h4>
+										<p>Karachi, Sindh, Pakistan</p>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-4 contact-agile1">
+									<i class="fa fa-envelope-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-xs-8 contact-agile2">
+									<div class="address">
+										<h4>Mail Us</h4>
+										<p><a href="mailto:email@example.com">email@example.com</a></p>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-4 contact-agile1">
+									<i class="fa fa-mobile" aria-hidden="true"></i>
+								</div>
+								<div class="col-xs-8 contact-agile2">
+									<div class="address">
+										<h4>Call Us</h4>
+										<p>+92 300 2312341</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<hr style="background:#fff;">
+				<p class="copyright">&copy; 2020. All rights reserved | Design by Syed Osama Hussain</p>
+			</div>
+		</section>
+	<!-- /footer section -->
+	<!-- back to top -->
+		<a href="#0" class="cd-top">Top</a>
+		<script src="{% static 'js/top.js' %}"></script>
+	<!-- back to top -->
+
+  </body>
+</html>
+<style>
+											.star-rating {
+												direction: rtl;
+												display: inline-block;
+
+											}
+											.star-rating input[type=radio] {
+												display: none;
+											}
+											.star-rating label {
+												color: #bbb;
+												font-size: 20px;
+												padding: 0;
+												cursor: pointer;
+												-webkit-transition: all .3s ease-in-out;
+												transition: all .3s ease-in-out;
+											}
+											.star-rating label:hover,
+											.star-rating label:hover ~ label,
+											.star-rating input[type=radio]:checked ~ label {
+												color: #f2b600;
+											}
+</style>

@@ -1,0 +1,136 @@
+/*-- /reset code --*/
+
+webkit-scrollbar {
+		width: 12px;
+	} 
+	::-webkit-scrollbar-track {
+		-webkit-box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
+		border-radius:50px;		
+	} 
+	::-webkit-scrollbar-thumb {
+		-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.8);
+			background: linear-gradient(to right, black, #ff9900);
+		border-radius:50px;
+	}
+
+.container h1,p{
+	font-family: Trebuchet MS;
+}
+.container i{
+	color: #fff;
+}
+.container {
+  z-index: 2;
+  position: relative;
+}
+
+/* Banner */
+.inner_page-banner {
+    text-align: center;
+    background: url(../images/glassesdetail.jpeg) no-repeat center;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -ms-background-size: cover;
+    min-height: 400px;
+}
+/* Banner */
+
+
+/*********************************
+6. Home Search
+*********************************/
+.search-panel {
+    width: 100%;
+    color: #fff;
+	padding:50px 0;
+}
+.home_search
+{
+	margin-top:200px;
+	width: 100%;
+	z-index: 100;
+}
+.home_search_container
+{
+	left: 15px;
+	width: calc(100% - 30px);
+	height: 90px;
+	border-radius: 45px;
+	padding: 10px;
+	background: rgba(255,255,255,0.33);
+}
+.home_search_content
+{
+	width: 100%;
+	height: 100%;
+	background: #FFFFFF;
+	border-radius: 35px;
+}
+.search_form
+{
+	position: relative;
+	height: 100%;
+}
+.search_form_content
+{
+	width: 100%;
+	height: 100%;
+	padding-left: 14px;
+	padding-right: 11px;
+}
+.search_form_content > div
+{
+	width: 100%;
+	height: 100%;
+	padding-left: 18px;
+	padding-right: 2px;
+}
+.search_form_content > div:not(:last-child)
+{
+	border-right: solid 2px #d1d1d1;
+}
+.search_form_select
+{
+	padding: 2%;
+	height: 100%;
+	display: block;
+	position: relative;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-moz-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
+	transform: translateY(-50%);
+	width: 100%;
+	-webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    -webkit-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+    -webkit-user-select: none;
+    border: none;
+    outline: none;
+    font-size: 20px;
+	font-family:Trebuchet MS;
+    font-weight: 400;
+	color: #6b6b6b;
+}
+.search_form_button
+{
+	width: 193px;
+	height: 100%;
+	border-radius: 35px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	font-size: 14px;
+	font-weight: 700;
+	color: #FFFFFF;
+	text-transform: uppercase;
+	background: linear-gradient(to right, black, #ff9900);
+}
+
+/*-- back to top --*/

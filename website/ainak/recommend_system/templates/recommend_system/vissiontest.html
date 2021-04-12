@@ -1,0 +1,1422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Ainak | Vission-Test</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+   {% load static %}
+
+  <!-- Favicons -->
+<!--  <link href="{% static 'assets/img/favicon.png'%}" rel="icon">-->
+<!--  <link href="{% static 'assets/img/apple-touch-icon.png'%}" rel="apple-touch-icon">-->
+
+	    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/icofont/icofont.min.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/remixicon/remixicon.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/venobox/venobox.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/owl.carousel/assets/owl.carousel.min.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/aos/aos.css'%}" rel="stylesheet">
+
+  <link href="{% static 'assets/css/style1.css'%}" rel="stylesheet">
+
+
+	<!-- Header section links -->
+		<link href="{% static 'css/icofont/icofont.min.css'%}" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.css'%}">
+		<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrapheader.min.css'%}">
+	<!-- Header section links -->
+
+	<!--stylesheets-->
+		<link href="{% static 'css/headerfooterstyle.css'%}" rel='stylesheet' type='text/css' media="all">
+		<link href="{% static 'css/font-awesome.min.css'%}" rel="stylesheet" type="text/css" media="all" />
+		<link href="{% static 'css/bootstrap.min.css'%}" rel="stylesheet" type="text/css" media="all" />
+
+</head>
+
+<body>
+{% include 'recommend_system/header.html' %}
+	
+	 <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1">
+          <h1>Test Your Vission Online</h1>
+          <h2>Here are 3 tests to help you quickly and easily know if it's time to have a more detailed eye examination with a vision care professional.</h2>
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2 hero-img">
+          <img src="{% static 'assets/img/eye.png'%}" class="img-fluid animated" alt="">
+        </div>
+      </div>
+    </div>
+
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= About Us Section ======= -->
+    <section id="about" class="about" style="margin-bottom: -50px;">
+      <div class="container">
+        <div class="section-title">
+          <h2>Vission-Test</h2>
+        </div>
+      </div>
+    </section><!-- End About Us Section -->
+
+  <div class="container" style="margin-bottom: 8rem;">
+    <div class="row row-content">
+
+
+              <div id="accordion">
+      <div class="card">
+        <div class="card-header" id="headingOne">
+          <h5 class="mb-0">
+            <button
+              class="btn btn-link"
+              data-toggle="collapse"
+              data-target="#collapseOne"
+              aria-expanded="true"
+              aria-controls="collapseOne"
+            >
+              VISUAL ACUITY
+            </button>
+          </h5>
+        </div>
+
+        <div
+          id="collapseOne"
+          class="collapse show"
+          aria-labelledby="headingOne"
+          data-parent="#accordion"
+        >
+          <div class="card-body" style="position: relative">
+            <div
+              class="alert alert-info alert-dismissible collapse"
+              id="alert_info_vm"
+              role="alert"
+              style="position: absolute; z-index: 1; right: 1%"
+            >
+              <strong>Thanks!</strong> Now cover the other eye.
+              <button
+                type="button"
+                class="close"
+                data-dismiss="alert"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div
+              class="alert alert-danger alert-dismissible collapse"
+              id="alert_lass_8"
+              role="alert"
+              style="position: absolute; z-index: 1; right: 1%"
+            >
+              <strong>YOUR RESULT</strong> <br />
+              You seem to have difficulties recognising small characters with
+              one of your eyes.
+              <hr />
+              We recommend you have a vision exam with an eye care professional.
+              <button
+                type="button"
+                class="close"
+                data-dismiss="alert"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div
+              class="alert alert-warning alert-dismissible collapse"
+              id="alert_lass_10"
+              role="alert"
+              style="position: absolute; z-index: 1; right: 1%"
+            >
+              <strong>YOUR RESULT</strong> <br />
+              You seem to have difficulties recognising small characters with
+              one of your eyes.
+              <button
+                type="button"
+                class="close"
+                data-dismiss="alert"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div
+              class="alert alert-success alert-dismissible collapse"
+              id="alert_lass_12"
+              role="alert"
+              style="position: absolute; z-index: 1; right: 1%"
+            >
+              <strong>YOUR RESULT</strong> <br />
+              Congratulations, your visual acuity seems good in both eyes.
+              <hr />
+              Feel free to redo this test regularly to monitor your vision.
+              <br />
+              However, to verify the health of your eyes, <br />
+              don't hesitate to fix an appointment with an eye care
+              professional.
+              <button
+                type="button"
+                class="close"
+                data-dismiss="alert"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="container" style="display: none" id="mainVA">
+              <div class="row">
+                <div class="col-sm">
+                  <div class="row">
+                    <div class="col-sm">
+                      <p
+                        class="h4 mt-4"
+                        style="
+                          letter-spacing: 2px;
+                          text-transform: uppercase !important;
+                        "
+                      >
+                        Indicate the way
+                        <i class="far fa-arrow-alt-circle-right"></i>
+                        is pointing
+                      </p>
+                      <p class="h6 mt-4">
+                        use the button at the bottom of the menu .
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm">
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <div
+                        class="col-sm-11"
+                        style="
+                          height: 150px;
+                          margin-top: 2%;
+                          border-radius: 5px;
+                          display: flex;
+                          flex-direction: column;
+                          justify-content: center;
+                          align-items: center;
+                        "
+                      >
+                        <i
+                          class="far fa-arrow-alt-circle-up"
+                          id="arrow"
+                          style="font-size: 25px"
+                        ></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm">
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <div class="row" id="buttons">
+                        <div class="col" id="left">
+                          <button
+                            style="
+                              background-color: transparent;
+                              border: 0;
+                              padding: 5px;
+                              cursor: pointer;
+                            "
+                            id="left"
+                          >
+                            <i
+                              id="left"
+                              class="fas fa-arrow-left"
+                              style="font-size: 20px"
+                            ></i>
+                          </button>
+                        </div>
+                        <div class="col" id="up">
+                          <button
+                            style="
+                              background-color: transparent;
+                              border: 0;
+                              padding: 5px;
+                              cursor: pointer;
+                            "
+                            id="up"
+                          >
+                            <i
+                              id="up"
+                              class="fas fa-arrow-up"
+                              style="font-size: 20px"
+                            ></i>
+                          </button>
+                        </div>
+                        <div class="col" id="down">
+                          <button
+                            style="
+                              background-color: transparent;
+                              border: 0;
+                              padding: 5px;
+                              cursor: pointer;
+                            "
+                            id="down"
+                          >
+                            <i
+                              id="down"
+                              class="fas fa-arrow-down"
+                              style="font-size: 20px"
+                            ></i>
+                          </button>
+                        </div>
+                        <div class="col" id="right">
+                          <button
+                            style="
+                              background-color: transparent;
+                              border: 0;
+                              padding: 5px;
+                              cursor: pointer;
+                            "
+                            id="right"
+                          >
+                            <i
+                              id="right"
+                              class="fas fa-arrow-right"
+                              style="font-size: 20px"
+                            ></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="container" id="hiddenVA">
+              <div class="row">
+                <div class="col-sm">
+                  <p class="h4 my-4"><b>Some guidelines for the test</b></p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-3" style=" margin-bottom: 30px;">
+                  <div class="row">
+                    <div
+                      class="col-sm-12"
+                      style="font-size: 10px;"
+                    >
+                      <span style="font-weight: 600; font-size: 30px">1</span
+                      ><br />Place yourself 1 meter from the screen.
+                    </div>
+                    <div class="col-sm-6" style="font-size: 10px; margin-top: 5%;">
+                      <div style="display: flex; margin-left: 10px">
+                      <div
+                        style="
+                          height: 50px;
+                          display: flex;
+                          flex-direction: column;
+                          justify-content: center;
+                          margin-left: 10px;
+                        "
+                      >
+                        <i class="fas fa-desktop" style="font-size: 30px"></i>
+                      </div>
+                      <div
+                        style="
+                          height: 50px;
+                          display: flex;
+                          margin-left: 5px;
+                          flex-direction: column;
+                          justify-content: center;
+                        "
+                      >
+                        <i
+                          class="fas fa-arrows-alt-h"
+                          style="font-size: 10px"
+                        ></i>
+                      </div>
+                      <div
+                        style="
+                          height: 50px;
+                          display: flex;
+                          font-size: 15px;
+                          font-weight: 900;
+                          margin-left: 5px;
+                          flex-direction: column;
+                          justify-content: center;
+                        "
+                      >
+                        1m
+                      </div>
+                      <div
+                        style="
+                          height: 50px;
+                          display: flex;
+                          margin-left: 5px;
+                          flex-direction: column;
+                          justify-content: center;
+                        "
+                      >
+                        <i
+                          class="fas fa-arrows-alt-h"
+                          style="font-size: 10px"
+                        ></i>
+                      </div>
+                      <div
+                        style="
+                          height: 50px;
+                          display: flex;
+                          flex-direction: column;
+                          justify-content: center;
+                          margin-left: 5px;
+                        "
+                      >
+                        <i class="far fa-eye" style="font-size: 20px"></i>
+                      </div>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3" style=" margin-bottom: 30px;">
+                  <div class="row">
+                    <div
+                      class="col-sm-12"
+                      style="font-size: 10px;"
+                    >
+                      <span style="font-weight: 600; font-size: 30px">2</span
+                      ><br />If you have glasses for distance vision or glasses
+                    with progressive lenses, keep them on.
+                    </div>
+                    <div class="col-sm-6" style="font-size: 10px; margin-top: 5%;">
+                      <div style="display: flex; margin-left: 10px">
+                      <div
+                        style="
+                          height: 50px;
+                          display: flex;
+                          flex-direction: column;
+                          justify-content: center;
+                          margin-left: 10px;
+                        "
+                      >
+                        <i class="fas fa-glasses" style="font-size: 30px"></i>
+                      </div>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3" style=" margin-bottom: 30px;">
+                  <div class="row">
+                    <div
+                      class="col-sm-12"
+                      style="font-size: 10px;"
+                    >
+                      <span style="font-weight: 600; font-size: 30px">3</span
+                      ><br />Without pressing on the eyelid, cover your left/right
+                    eye with your hand.
+                    </div>
+                    <div class="col-sm-6" style="font-size: 10px; margin-top: 5%;">
+                      <div style="display: flex;">
+                      <div
+                        style="
+                          height: 50px;
+                          display: flex;
+                          flex-direction: column;
+                          justify-content: center;
+                          margin-left: 10px;
+                        "
+                      >
+                        <i class="far fa-eye" style="font-size: 20px"></i>
+                      </div>
+                      <div
+                        style="
+                          height: 50px;
+                          display: flex;
+                          flex-direction: column;
+                          justify-content: center;
+                          margin-left: 5px;
+                        "
+                      >
+                        <i
+                        class="far fa-hand-paper"
+                        style="font-size: 30px; margin-left: 5px"
+                      ></i>
+                      </div>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3" style=" margin-bottom: 30px;">
+                  <div class="row">
+                    <div
+                      class="col-sm-12"
+                      style="font-size: 10px;"
+                    >
+                      <span style="font-weight: 600; font-size: 30px">4</span
+                      ><br />Indicate which way the
+                    <i
+                      class="far fa-arrow-alt-circle-right"
+                      style="font-size: 15px"
+                    ></i>
+                    arrow is facing <br> with your keyboard.
+                    </div>
+                    <div class="col-sm-6" style="font-size: 10px; margin-top: 5%;">
+                      <div style="display: flex; margin-left: 10px">
+                          <div
+                      style="
+                        height: 50px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        margin-left: 10px;
+                      "
+                    >
+                      <i class="fas fa-arrow-left" style="font-size: 20px"></i>
+                    </div>
+                    <div
+                      style="
+                        height: 50px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        margin-left: 10px;
+                      "
+                    >
+                      <i class="fas fa-arrow-up" style="font-size: 20px"></i>
+                    </div>
+                    <div
+                      style="
+                        height: 50px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        margin-left: 10px;
+                      "
+                    >
+                      <i class="fas fa-arrow-down" style="font-size: 20px"></i>
+                    </div>
+                    <div
+                      style="
+                        height: 50px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        margin-left: 10px;
+                      "
+                    >
+                      <i class="fas fa-arrow-right" style="font-size: 20px"></i>
+                    </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm my-3">
+                  <button
+                    type="button"
+                    class="btn btn-outline-secondary"
+                    onclick="hideVA()"
+                  >
+                    Start
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header" id="headingTwo">
+          <h5 class="mb-0">
+            <button
+              class="btn btn-link collapsed"
+              data-toggle="collapse"
+              data-target="#collapseTwo"
+              aria-expanded="false"
+              aria-controls="collapseTwo"
+            >
+              NEAR VISION
+            </button>
+          </h5>
+        </div>
+        <div
+          id="collapseTwo"
+          class="collapse"
+          aria-labelledby="headingTwo"
+          data-parent="#accordion"
+        >
+          <div class="card-body">
+            <div
+              class="alert alert-danger alert-dismissible collapse"
+              id="alert_NO_NV"
+              role="alert"
+              style="position: absolute; z-index: 1; right: 1%"
+            >
+              <strong>YOUR RESULT</strong> <br />
+              You can't read all the text from 40cm away.
+              <hr />
+              We recommend you make an appointment with an eye care professional
+              <br />
+              to do an evaluation of your vision and to find out more about the
+              <br />
+              different corrective solutions available to you.
+              <button
+                type="button"
+                class="close"
+                data-dismiss="alert"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div
+              class="alert alert-success alert-dismissible collapse"
+              id="alert_YES_NV"
+              role="alert"
+              style="position: absolute; z-index: 1; right: 1%"
+            >
+              <strong>YOUR RESULT</strong> <br />
+              Congratulations, you can read all the text from 40cm away. <br />
+              You seem to have good near vision.
+              <hr />
+              you feel the need to hold a document further away to read, <br />
+              particularly in low light, you probably have presbyopic <br />
+              tendencies. Make an appointment with an eye care professional to
+              <br />
+              do an evalaution of your vision and to find out more about the
+              <br />
+              different corrective solutions available to you.
+              <button
+                type="button"
+                class="close"
+                data-dismiss="alert"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="container" style="display: none" id="mainNV">
+              <div class="row">
+                <div class="col-sm mb-5">
+                  <div class="row">
+                    <div class="col-sm-7" style="text-align: center">
+                      <span
+                        style="
+                          font-size: 18px;
+                          font-weight: 500;
+                          line-height: 175%;
+                        "
+                        >Being able to see well at any distance, without the
+                        need to constantly</span
+                      ><br />
+                      <span
+                        style="
+                          font-size: 16px;
+                          font-weight: 500;
+                          line-height: 175%;
+                        "
+                        >fiddle his glasses, is increasingly necessary when
+                        one's eyes are tired.</span
+                      ><br />
+                      <span
+                        style="
+                          font-size: 14px;
+                          font-weight: 500;
+                          line-height: 175%;
+                        "
+                        >With progressives lenses all presbyopes can still have
+                        most</span
+                      ><br />
+                      <span
+                        style="
+                          font-size: 12px;
+                          font-weight: 500;
+                          line-height: 175%;
+                        "
+                        >of the visual acuity that they always had.</span
+                      ><br />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <hr />
+              <div class="row">
+                <div class="col-sm">
+                  <div class="row">
+                    <div class="col-sm" style="font-size: 12px !important">
+                      <label for="NV_YESNO"></label>
+                      Can you read all the lines of text, including the smallest
+                      one?
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div
+                  class="col-sm-1"
+                  style="font-size: 12px !important; text-align: center"
+                >
+                  <form class="mt-2">
+                    <input
+                      id="radioYes"
+                      type="radio"
+                      name="NV_YESNO"
+                      onclick=""
+                      value="yes"
+                    />
+                    Yes
+                    <br />
+                    <input
+                      id="radioNo"
+                      type="radio"
+                      name="NV_YESNO"
+                      onclick=""
+                      value="no"
+                    />
+                    No
+                  </form>
+                </div>
+                <div class="col-sm-2 mt-2" style="font-size: 12px !important">
+                  <button
+                    type="button"
+                    class="btn btn-outline-secondary"
+                    onclick="NVCheck()"
+                  >
+                    Submit
+                  </button>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm my-3"></div>
+              </div>
+            </div>
+            <div class="container" id="hiddenNV">
+              <div class="row">
+                <div class="col-sm">
+                  <p class="h4 my-4"><b>Some guidelines for the test</b></p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-3">
+                  <div class="row">
+                    <div
+                      class="col-sm-12"
+                      style="font-size: 10px; height: 80px"
+                    >
+                      <span style="font-weight: 600; font-size: 30px">1</span
+                      ><br />Place yourself 40 centimeters from the screen.
+                    </div>
+                    <div style="display: flex; margin-left: 10px">
+                      <div
+                        style="
+                          height: 50px;
+                          display: flex;
+                          flex-direction: column;
+                          justify-content: center;
+                          margin-left: 10px;
+                        "
+                      >
+                        <i class="fas fa-desktop" style="font-size: 30px"></i>
+                      </div>
+                      <div
+                        style="
+                          height: 50px;
+                          display: flex;
+                          margin-left: 5px;
+                          flex-direction: column;
+                          justify-content: center;
+                        "
+                      >
+                        <i
+                          class="fas fa-arrows-alt-h"
+                          style="font-size: 10px"
+                        ></i>
+                      </div>
+                      <div
+                        style="
+                          height: 50px;
+                          display: flex;
+                          font-size: 15px;
+                          font-weight: 900;
+                          margin-left: 5px;
+                          flex-direction: column;
+                          justify-content: center;
+                        "
+                      >
+                        40 cm
+                      </div>
+                      <div
+                        style="
+                          height: 50px;
+                          display: flex;
+                          margin-left: 5px;
+                          flex-direction: column;
+                          justify-content: center;
+                        "
+                      >
+                        <i
+                          class="fas fa-arrows-alt-h"
+                          style="font-size: 10px"
+                        ></i>
+                      </div>
+                      <div
+                        style="
+                          height: 50px;
+                          display: flex;
+                          flex-direction: column;
+                          justify-content: center;
+                          margin-left: 5px;
+                        "
+                      >
+                        <i class="far fa-eye" style="font-size: 20px"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="col-sm-12" style="font-size: 10px">
+                    <span style="font-weight: 600; font-size: 30px">2</span
+                    ><br />
+                    If you have glasses for near vision or glasses with
+                    progressive lenses, keep them on. If you wear progressive
+                    lenses, lift your head in order to look through the lower
+                    part of your lenses.
+                  </div>
+                  <div style="display: flex; margin-top: 4%">
+                    <div
+                      style="
+                        height: 50px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        margin-left: 10px;
+                      "
+                    >
+                      <i class="fas fa-glasses" style="font-size: 30px"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm my-3">
+                  <button
+                    type="button"
+                    class="btn btn-outline-secondary"
+                    onclick="hideNV()"
+                  >
+                    Start
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header" id="headingThree">
+          <h5 class="mb-0">
+            <button
+              class="btn btn-link collapsed"
+              data-toggle="collapse"
+              data-target="#collapseThree"
+              aria-expanded="false"
+              aria-controls="collapseThree"
+            >
+              COLOR VISION
+            </button>
+          </h5>
+        </div>
+        <div
+          id="collapseThree"
+          class="collapse"
+          aria-labelledby="headingThree"
+          data-parent="#accordion"
+        >
+          <div class="card-body">
+            <div
+              class="alert alert-danger alert-dismissible collapse"
+              id="alert_3_CV"
+              role="alert"
+              style="position: absolute; z-index: 1; right: 1%"
+            >
+              <strong>YOUR RESULT</strong> <br />
+              You most likely have some colour vision difficulties.
+              <hr />
+              We recommend you evaluate your vision with an eye care
+              professional.
+              <button
+                type="button"
+                class="close"
+                data-dismiss="alert"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div
+              class="alert alert-success alert-dismissible collapse"
+              id="alert_5_CV"
+              role="alert"
+              style="position: absolute; z-index: 1; right: 1%"
+            >
+              <strong>YOUR RESULT</strong> <br />
+              Congratulations, you don't seem to have a color perception
+              problem.
+              <hr />
+              Feel free to redo this test regularly to monitor your vision.
+              <br />
+              However, to verify the health of your eyes, don't hesitate to fix
+              an appointment with an eye care professional.
+              <button
+                type="button"
+                class="close"
+                data-dismiss="alert"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="container" style="display: none" id="mainCV">
+              <div class="row">
+                <div class="col-sm mb-5">
+                  <span
+                    id="CVQuestionNo"
+                    style="font-weight: 500; font-size: 20px"
+                    >1</span
+                  >/6 What number do you see?
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-3">
+                  <img src="{% static 'img/png1.png' %}" alt="IMAGE" id="CVimg" />
+                </div>
+                <div
+                  class="col-sm-3 offset-1"
+                  style="
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                  "
+                >
+                  <div class="row">
+                    <div
+                      class="col-sm-3 mb-2"
+                      style="
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                      "
+                    >
+                      I see
+                    </div>
+                    <div class="col-sm-9 mb-2">
+                      <input
+                        type="text"
+                        name="InputCV"
+                        id="textboxCV"
+                        placeholder="insert No. here"
+                        style="padding: 10px"
+                      />
+                    </div>
+                    <div class="col-sm-12 mb-4">
+                      If you don't see any number, enter the letter X
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm mb-5">
+                      <button
+                        id="CVTbn"
+                        type="button"
+                        class="btn btn-outline-secondary"
+                        onclick="CVsubmit()"
+                      >
+                        Submit
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="row">
+                <div class="col-sm">
+                  <div class="row">
+                    <div class="col-sm" style="font-size: 12px !important">
+                      <label for="NV_YESNO"></label>
+                      Can you read all the lines of text, including the smallest
+                      one?
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div
+                  class="col-sm-1"
+                  style="font-size: 12px !important; text-align: center"
+                >
+                  <form class="mt-2">
+                    <input
+                      id="radioYes"
+                      type="radio"
+                      name="NV_YESNO"
+                      onclick=""
+                      value="yes"
+                    />
+                    Yes
+                    <br />
+                    <input
+                      id="radioNo"
+                      type="radio"
+                      name="NV_YESNO"
+                      onclick=""
+                      value="no"
+                    />
+                    No
+                  </form>
+                </div>
+                <div class="col-sm-2 mt-2" style="font-size: 12px !important">
+                  <button
+                    type="button"
+                    class="btn btn-outline-secondary"
+                    onclick="NVCheck()"
+                  >
+                    Submit
+                  </button>
+                </div>
+              </div> -->
+            </div>
+            <div class="container" id="hiddenCV">
+              <div class="row">
+                <div class="col-sm">
+                  <p class="h4 my-4"><b>Some guidelines for the test</b></p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-3">
+                  <div class="row">
+                    <div
+                      class="col-sm-12"
+                      style="font-size: 10px; height: 80px"
+                    >
+                      <span style="font-weight: 600; font-size: 30px">1</span
+                      ><br />Place yourself 40 centimeters from the screen.
+                    </div>
+                    <div style="display: flex; margin-left: 10px">
+                      <div
+                        style="
+                          height: 50px;
+                          display: flex;
+                          flex-direction: column;
+                          justify-content: center;
+                          margin-left: 10px;
+                        "
+                      >
+                        <i class="fas fa-desktop" style="font-size: 30px"></i>
+                      </div>
+                      <div
+                        style="
+                          height: 50px;
+                          display: flex;
+                          margin-left: 5px;
+                          flex-direction: column;
+                          justify-content: center;
+                        "
+                      >
+                        <i
+                          class="fas fa-arrows-alt-h"
+                          style="font-size: 10px"
+                        ></i>
+                      </div>
+                      <div
+                        style="
+                          height: 50px;
+                          display: flex;
+                          font-size: 15px;
+                          font-weight: 900;
+                          margin-left: 5px;
+                          flex-direction: column;
+                          justify-content: center;
+                        "
+                      >
+                        40 cm
+                      </div>
+                      <div
+                        style="
+                          height: 50px;
+                          display: flex;
+                          margin-left: 5px;
+                          flex-direction: column;
+                          justify-content: center;
+                        "
+                      >
+                        <i
+                          class="fas fa-arrows-alt-h"
+                          style="font-size: 10px"
+                        ></i>
+                      </div>
+                      <div
+                        style="
+                          height: 50px;
+                          display: flex;
+                          flex-direction: column;
+                          justify-content: center;
+                          margin-left: 5px;
+                        "
+                      >
+                        <i class="far fa-eye" style="font-size: 20px"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="col-sm-12" style="font-size: 10px">
+                    <span style="font-weight: 600; font-size: 30px">2</span
+                    ><br />
+                    If you have glasses for near vision or glasses with
+                    progressive lenses, keep them on. If you wear progressive
+                    lenses, lift your head in order to look through the lower
+                    part of your lenses.
+                  </div>
+                  <div style="display: flex; margin-top: 4%">
+                    <div
+                      style="
+                        height: 50px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        margin-left: 10px;
+                      "
+                    >
+                      <i class="fas fa-glasses" style="font-size: 30px"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm my-3">
+                  <button
+                    type="button"
+                    class="btn btn-outline-secondary"
+                    onclick="hideCV()"
+                  >
+                    Start
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    </div>
+  </div>
+
+
+
+<!--	      <script src="{% static 'node_modules/jquery/dist/jquery.slim.min.js' %}"></script>-->
+<!--    <script src="{% static 'node_modules/popper.js/dist/umd/popper.min.js' %}"></script>-->
+<!--    <script src="{% static 'node_modules/bootstrap/dist/js/bootstrap.min.js' %}"></script>-->
+
+
+  </main><!-- End #main -->
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/jquery/jquery.min.js'%}"></script>
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+  <script src="{% static 'assets/vendor/jquery.easing/jquery.easing.min.js'%}"></script>
+  <script src="{% static 'assets/vendor/waypoints/jquery.waypoints.min.js'%}"></script>
+  <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js'%}"></script>
+  <script src="{% static 'assets/vendor/owl.carousel/owl.carousel.min.js'%}"></script>
+  <script src="{% static 'assets/vendor/aos/aos.js'%}"></script>
+
+  <!-- Template Main JS File -->
+  <scripst src="{% static 'assets/js/main.js'%}"></scripst>
+
+
+	
+	<!-- footer section -->
+		<section class="footer" id="contact">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-4 col-md-4 footer-agile">
+						<h3>About Us</h3>
+						<p class="footer-p1">Ainak.com is the first innovative Glasses web portal with new dimensions in the sector, aiming to provide easy access to buy for any kind of glasses and also  provide innovative solutions, to ensure the best possible outcome is achieved.</p>
+						<ul class="social-icons3">
+							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+							<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+						</ul>
+					</div>
+					<div class="col-lg-4 col-md-4 footer-agile">
+						<h3>Ainak.com</h3>
+						<p class="footer-p2">In Association and support of Etc University.</p>
+						<p class="footer-p3"><a href="#">#Opened</a>, <span>24/7</span></p>
+					</div>
+					<div class="col-lg-4 col-md-4 footer-agile">
+						<h3>GET IN TOUCH</h3>
+						<div class="contact-w3ls">
+							<div class="row">
+								<div class="col-xs-4 contact-agile1">
+									<i class="fa fa-map-marker" aria-hidden="true"></i>
+								</div>
+								<div class="col-xs-8 contact-agile2">
+									<div class="address">
+										<h4>Visit Us</h4>
+										<p>Karachi, Sindh, Pakistan</p>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-4 contact-agile1">
+									<i class="fa fa-envelope-o" aria-hidden="true"></i>
+								</div>
+								<div class="col-xs-8 contact-agile2">
+									<div class="address">
+										<h4>Mail Us</h4>
+										<p><a href="mailto:email@example.com">email@example.com</a></p>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-4 contact-agile1">
+									<i class="fa fa-mobile" aria-hidden="true"></i>
+								</div>
+								<div class="col-xs-8 contact-agile2">
+									<div class="address">
+										<h4>Call Us</h4>
+										<p>+92 300 2312341</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<hr style="background:#fff;">
+				<p class="copyright">&copy; 2020. All rights reserved | Design by Syed Osama Hussain</p>
+			</div>
+		</section>
+	<!-- /footer section -->
+	<!-- back to top -->
+		<a href="#0" class="cd-top">Top</a>
+		<script src="{% static 'js/top.js'%}"></script>
+	<!-- back to top -->
+
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      const questions = new Array();
+      const answers = new Array();
+      const arrow = document.getElementById("arrow");
+      let correct = 0;
+
+      const faces = [
+        ["up", "rotate(0deg)"],
+        ["down", "rotate(180deg)"],
+        ["left", "rotate(275deg)"],
+        ["right", "rotate(90deg)"],
+      ];
+
+      const changeFace = () => {
+        const random = Math.floor(Math.random() * 4);
+
+        questions.push(faces[random][0]);
+        arrow.style.transform = faces[random][1];
+      };
+
+      document.getElementById("buttons").addEventListener("click", (event) => {
+        console.log(event.target["id"]);
+        if (answers.length < 12) {
+          answers.push(event.target["id"]);
+
+          changeFace();
+
+          if (answers.length === 2 || answers.length === 8) {
+            arrow.style.fontSize = "20px";
+          } else if (answers.length === 6) {
+            arrow.style.fontSize = "25px";
+
+            document.getElementById("alert_info_vm").classList.add("show");
+          } else if (answers.length === 4 || answers.length === 10) {
+            arrow.style.fontSize = "15px";
+          }
+
+          if (answers.length === 12) {
+            document.getElementById("buttons").style.pointerEvents = "none";
+            document.getElementById("buttons").style.opacity = "0.2";
+
+            questions.pop();
+
+            for (let x = 0; x < 12; x++) {
+              if (answers[x] === questions[x]) {
+                correct++;
+              }
+            }
+
+            if (correct < 8) {
+              document.getElementById("alert_lass_8").classList.add("show");
+            } else if (correct > 8 && correct <= 10) {
+              document.getElementById("alert_lass_10").classList.add("show");
+            } else {
+              document.getElementById("alert_lass_12").classList.add("show");
+            }
+          }
+        }
+      });
+
+      const hideVA = () => {
+        document.getElementById("hiddenVA").style.opacity = "0";
+        document.getElementById("hiddenVA").style.pointerEvents = "none";
+        document.getElementById("hiddenVA").style.display = "none";
+
+        document.getElementById("mainVA").style.display = "block";
+
+        changeFace();
+      };
+
+      const NVCheck = () => {
+        const form = document.forms[2];
+
+        for (let x = 0; x < form.length; x++) {
+          if (form[x].checked) {
+            // alert(form[x].value);
+            if (form[x].value == "yes") {
+              document.getElementById("alert_YES_NV").classList.add("show");
+            } else if (form[x].value == "no") {
+              document.getElementById("alert_NO_NV").classList.add("show");
+            }
+          }
+        }
+      };
+
+      const hideNV = () => {
+        document.getElementById("hiddenNV").style.opacity = "0";
+        document.getElementById("hiddenNV").style.pointerEvents = "none";
+        document.getElementById("hiddenNV").style.display = "none";
+
+        document.getElementById("mainNV").style.display = "block";
+      };
+
+      const CVQusestions = ["12", "29", "15", "97", "16"];
+      const CVAnswers = [];
+      let CVCount = 0;
+
+      const CVTEXT = document.getElementById("textboxCV");
+      const CVimg = document.getElementById("CVimg");
+      const CVcounter = document.getElementById("CVQuestionNo");
+
+      const CVsubmit = () => {
+        if (CVAnswers.length == 0) {
+          CVAnswers.push(CVTEXT.value);
+          CVimg.src = "{% static 'img/png2.png' %}";
+          CVcounter.innerText = "2";
+          CVTEXT.value = "";
+        } else if (CVAnswers.length == 1) {
+          CVAnswers.push(CVTEXT.value);
+          CVimg.src = "{% static 'img/png3.png' %}";
+          CVcounter.innerText = "3";
+          CVTEXT.value = "";
+        } else if (CVAnswers.length == 2) {
+          CVAnswers.push(CVTEXT.value);
+          CVimg.src = "{% static 'img/png4.png' %}";
+          CVcounter.innerText = "4";
+          CVTEXT.value = "";
+        } else if (CVAnswers.length == 3) {
+          CVAnswers.push(CVTEXT.value);
+          CVimg.src = "{% static 'img/png5.png' %}";
+          CVcounter.innerText = "5";
+          CVTEXT.value = "";
+        } else if (CVAnswers.length == 4) {
+          CVAnswers.push(CVTEXT.value);
+          CVimg.src = "{% static 'img/png6.png' %}";
+          CVcounter.innerText = "6";
+          CVTEXT.value = "";
+        } else {
+          CVCount = 0;
+
+          CVTEXT.style.pointerEvents = "none";
+          CVTEXT.style.opacity = "0.2";
+
+          document.getElementById("CVTbn").style.pointerEvents = "none";
+          document.getElementById("CVTbn").style.opacity = "0.2";
+
+          for (let x = 0; x < CVQusestions.length; x++) {
+            if (CVAnswers[x] == CVQusestions[x]) {
+              CVCount++;
+            }
+          }
+
+          if (CVCount < 3) {
+            document.getElementById("alert_3_CV").classList.add("show");
+          } else if (CVCount >= 3 && CVCount <= 5) {
+            document.getElementById("alert_5_CV").classList.add("show");
+          }
+        }
+      };
+
+      const hideCV = () => {
+        document.getElementById("hiddenCV").style.opacity = "0";
+        document.getElementById("hiddenCV").style.pointerEvents = "none";
+        document.getElementById("hiddenCV").style.display = "none";
+
+        document.getElementById("mainCV").style.display = "block";
+      };
+    </script>
+
+
+  </body>
+</html>
+<style>
+.accordionheader{
+	background: #ff9900;
+	cursor: pointer;
+}
+.row-content {
+	margin: 0px auto;
+	min-height: 400px;
+}
+</style>
